@@ -1,13 +1,34 @@
 import React from "react";
-import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
-import heroImg from "../assets/images/hero-img.png";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import heroImg from "../assets/images/hero-img.png";
+import counterImg from "../assets/images/counter-timer-img.png";
+import products from "../assets/data/products";
+import Services from "../services/Services";
+import Helmet from "../components/Helmet/Helmet";
+import ProductsList from "../components/UI/ProductsList";
+import Clock from "../components/UI/Clock";
 import "../styles/home.css";
 
 const Home = () => {
+  const [trendingProducts, setTrendingProducts] = useState([]);
+  const [bestSalesProducts, setBestSalesProducts] = useState([]);
   const year = new Date().getFullYear();
+
+  useEffect(() => {
+    const filteredTrendingProducts = products.filter(
+      (item) => item.category === "Sillas"
+    );
+    const filteredBestSalesProducts = products.filter(
+      (item) => item.category === "Sofá"
+    );
+
+    setTrendingProducts(filteredTrendingProducts);
+    setBestSalesProducts(filteredBestSalesProducts);
+  }, []);
   return (
     <Helmet title={"Home"}>
       <section className="hero__section">
@@ -34,6 +55,59 @@ const Home = () => {
               <div className="hero__img">
                 <img src={heroImg} alt="hero-img" />
               </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <Services />
+      <section className="trending__products">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center">
+              <h2 className="section__title">🛍️ Productos en tendencia 🛍️</h2>
+            </Col>
+            <ProductsList data={trendingProducts} />
+          </Row>
+        </Container>
+      </section>
+
+      <section className="best__sales">
+        <Container>
+          <Row>
+            <Col lg="12" className="text-center">
+              <h2 className="section__title">💸 Los Más Vendidos 💸</h2>
+            </Col>
+
+            <ProductsList data={bestSalesProducts} />
+          </Row>
+        </Container>
+      </section>
+
+      <section className="timer__count">
+        <Container>
+          <Row>
+            <Col lg="6" md="6">
+              <div className="clock__top-content">
+                <h4 className="text-white fs-6 mb-2">
+                  💲 Ofertas Limitadas 💲
+                </h4>
+                <h3 className="text-white fs-5 mb-3">
+                  Sillón Luxury Limited Edition
+                </h3>
+              </div>
+              <Clock />
+
+              <motion.button
+                whileTap={{ scale: 1.2 }}
+                className="buy__btn store__btn"
+              >
+                <Link to={"/shop"}>Ver Tienda</Link>
+              </motion.button>
+            </Col>
+
+            <Col lg="6" md="6" className="text-end">
+              <img src={counterImg} alt="" />
             </Col>
           </Row>
         </Container>
