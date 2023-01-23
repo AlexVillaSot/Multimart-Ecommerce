@@ -371,7 +371,7 @@ const products = [
     productName: "One Plus Nord",
     imgUrl: productImg16,
     category: "Móviles",
-    price: 799,
+    price: 859,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:
@@ -440,7 +440,7 @@ const products = [
     productName: "Reloj Rolex Gold",
     imgUrl: productImg19,
     category: "Relojes",
-    price: 299,
+    price: 899,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:
@@ -463,7 +463,7 @@ const products = [
     productName: "Reloj Timex Easy Reader",
     imgUrl: productImg20,
     category: "Relojes",
-    price: 299,
+    price: 399,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:
@@ -486,7 +486,7 @@ const products = [
     productName: "Reloj Rolex Deluxe",
     imgUrl: productImg21,
     category: "Relojes",
-    price: 299,
+    price: 599,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:
@@ -509,7 +509,7 @@ const products = [
     productName: "Apple Watch",
     imgUrl: productImg22,
     category: "Relojes",
-    price: 399,
+    price: 499,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:
@@ -532,7 +532,7 @@ const products = [
     productName: "Audífonos Beat Studio",
     imgUrl: productImg23,
     category: "Periféricos",
-    price: 199,
+    price: 195,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:
@@ -554,7 +554,7 @@ const products = [
     productName: "Audífonos Sony Music",
     imgUrl: productImg24,
     category: "Periféricos",
-    price: 199,
+    price: 185,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:
@@ -577,7 +577,7 @@ const products = [
     productName: "Audífonos Beat EP",
     imgUrl: productImg25,
     category: "Periféricos",
-    price: 199,
+    price: 145,
     shortDesc:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur iure quas illo voluptates labore tempore!",
     description:
