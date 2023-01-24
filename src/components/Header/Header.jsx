@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import "./header.css";
 import { motion } from "framer-motion";
 import { Container, Row } from "reactstrap";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/eco-logo.png";
 import userIcon from "../../assets/images/user-icon.png";
@@ -24,6 +25,7 @@ const nav__links = [
 ];
 const Header = () => {
   const headerRef = useRef(null);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   const menuRef = useRef(null);
 
@@ -86,7 +88,7 @@ const Header = () => {
               </motion.span>
               <motion.span whileTap={{ scale: 1.3 }} className="cart__icon">
                 <i class="ri-shopping-cart-line"></i>
-                <span className="badge">2</span>
+                <span className="badge">{totalQuantity}</span>
               </motion.span>
 
               <span>
