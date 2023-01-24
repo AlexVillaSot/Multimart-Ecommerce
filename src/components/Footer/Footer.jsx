@@ -10,11 +10,9 @@ const Footer = () => {
     <footer className="footer">
       <Container>
         <Row>
-          <Col lg="4">
-            <div className="nav__wrapper">
-              <div className="logo">
-                <h1 className="text-white">Multimart</h1>
-              </div>
+          <Col lg="4" className="mb-4" md="6">
+            <div className="logo">
+              <h1 className="text-white">Multimart</h1>
             </div>
             <p className="footer__text mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
@@ -22,7 +20,7 @@ const Footer = () => {
               enim?
             </p>
           </Col>
-          <Col lg="3">
+          <Col lg="3" className="mb-4" md="3">
             <div className="footer__quick-links">
               <h4 className="quick__links-title">Mejores Categorías</h4>
               <ListGroup>
@@ -52,7 +50,7 @@ const Footer = () => {
               </ListGroup>
             </div>
           </Col>
-          <Col lg="2">
+          <Col lg="2" className="mb-4" md="3">
             <div className="footer__quick-links">
               <h4 className="quick__links-title">Enlaces</h4>
               <ListGroup>
@@ -82,7 +80,7 @@ const Footer = () => {
               </ListGroup>
             </div>
           </Col>
-          <Col lg="3">
+          <Col lg="3" md="4">
             <div className="footer__quick-links">
               <h4 className="quick__links-title">Contáctanos</h4>
               <ListGroup className="footer__contact">

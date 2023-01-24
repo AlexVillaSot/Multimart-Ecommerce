@@ -7,7 +7,7 @@ const serviceData = [
   },
   {
     icon: "ri-refresh-line",
-    title: "Devoluciones Fáciles",
+    title: "Devolución Fácil",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#ceebe9",
   },
@@ -19,7 +19,7 @@ const serviceData = [
   },
   {
     icon: "ri-exchange-dollar-line",
-    title: " Garantía de Devolución",
+    title: "Devolución Segura",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#d6e5fb",
   },

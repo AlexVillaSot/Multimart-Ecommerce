@@ -61,7 +61,11 @@ const Header = () => {
             <div className="navigation" ref={menuRef} onClick={menuToggle}>
               <ul className="menu">
                 {nav__links.map((item, index) => (
-                  <li className="nav__item" key={index}>
+                  <motion.li
+                    whileHover={{ scale: 1.3 }}
+                    className="nav__item"
+                    key={index}
+                  >
                     <NavLink
                       to={item.path}
                       className={(navClass) =>
@@ -70,20 +74,20 @@ const Header = () => {
                     >
                       {item.display}
                     </NavLink>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
 
             <div className="nav__icons">
-              <span className="cart__icon">
+              <motion.span whileTap={{ scale: 1.3 }} className="cart__icon">
                 <i class="ri-heart-3-line"></i>
                 <span className="badge">2</span>
-              </span>
-              <span className="cart__icon">
+              </motion.span>
+              <motion.span whileTap={{ scale: 1.3 }} className="cart__icon">
                 <i class="ri-shopping-cart-line"></i>
                 <span className="badge">2</span>
-              </span>
+              </motion.span>
 
               <span>
                 <motion.img
@@ -93,9 +97,9 @@ const Header = () => {
                 />
               </span>
               <div className="mobile__menu">
-                <span onClick={menuToggle}>
+                <motion.span whileTap={{ scale: 1.2 }} onClick={menuToggle}>
                   <i class="ri-menu-line"></i>
-                </span>
+                </motion.span>
               </div>
             </div>
           </div>
