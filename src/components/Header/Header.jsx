@@ -6,6 +6,11 @@ import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/eco-logo.png";
 import userIcon from "../../assets/images/user-icon.png";
+import useAuth from "../../custom-hooks/useAuth";
+import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase.config";
+import { toast } from "react-toastify";
 
 const nav__links = [
   {
@@ -26,9 +31,11 @@ const nav__links = [
 const Header = () => {
   const headerRef = useRef(null);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const profileActionRef = useRef(null);
 
   const menuRef = useRef(null);
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
 
   const stickyHeaderFunc = () => {
     window.addEventListener("scroll", () => {
@@ -43,6 +50,17 @@ const Header = () => {
     });
   };
 
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("Sesión finalizada");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        navigate("/home");
+      });
+  };
+
   useEffect(() => {
     stickyHeaderFunc();
 
@@ -55,6 +73,9 @@ const Header = () => {
     navigate("/cart");
   };
 
+  const toggleProfileActions = () =>
+    profileActionRef.current.classList.toggle("hide__profileActions");
+
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -66,7 +87,7 @@ const Header = () => {
             </div>
 
             <div className="navigation" ref={menuRef} onClick={menuToggle}>
-              <ul className="menu">
+              <motion.ul className="menu">
                 {nav__links.map((item, index) => (
                   <motion.li
                     whileHover={{ scale: 1.3 }}
@@ -83,7 +104,7 @@ const Header = () => {
                     </NavLink>
                   </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </div>
 
             <div className="nav__icons">
@@ -100,13 +121,30 @@ const Header = () => {
                 <span className="badge">{totalQuantity}</span>
               </motion.span>
 
-              <span>
+              <div className="profile">
                 <motion.img
                   whileTap={{ scale: 1.3 }}
-                  src={userIcon}
+                  src={currentUser ? currentUser.photoURL : userIcon}
                   alt="user-icon"
+                  onClick={toggleProfileActions}
                 />
-              </span>
+
+                <div
+                  id="profile__btn"
+                  className=" hide__profileActions profile__actions"
+                  ref={profileActionRef}
+                  onClick={toggleProfileActions}
+                >
+                  {currentUser ? (
+                    <span onClick={logout}>Cerrar sesión</span>
+                  ) : (
+                    <div className="d-flex align-items-center justify-content-center flex-column">
+                      <Link to="/signup">Crear Cuenta</Link>
+                      <Link to="/login">Iniciar Sesión</Link>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="mobile__menu">
                 <motion.span whileTap={{ scale: 1.2 }} onClick={menuToggle}>
                   <i class="ri-menu-line"></i>

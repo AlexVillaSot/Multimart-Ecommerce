@@ -20,7 +20,7 @@ const Cart = () => {
             <Col lg="9">
               {cartItems.length === 0 ? (
                 <h2 className="fs-4 text-center">
-                  No hay artículos en el Carrito{" "}
+                  🛒 ❌​ No hay artículos en el Carrito ❌ 🛒​{" "}
                 </h2>
               ) : (
                 <table className="table bordered">
@@ -53,12 +53,18 @@ const Cart = () => {
                 Los impuestos y el envío se calcularán al finalizar la compra 💲
               </p>
               <div>
-                <button className="buy__btn w-100 ">
+                <motion.button
+                  whileTap={{ scale: 1.1 }}
+                  className="buy__btn w-100 "
+                >
                   <Link to="/checkout">Verificar Compra</Link>
-                </button>
-                <button className="buy__btn w-100 mt-3">
+                </motion.button>
+                <motion.button
+                  whileTap={{ scale: 1.1 }}
+                  className="buy__btn w-100 mt-3"
+                >
                   <Link to="/shop">Seguir Comprando</Link>
-                </button>
+                </motion.button>
               </div>
             </Col>
           </Row>
